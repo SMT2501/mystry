@@ -23,6 +23,7 @@
             padding: 120px 20px 80px 20px;
             position: relative;
             overflow: hidden;
+            transition: padding 0.4s cubic-bezier(.77,0,.18,1), font-size 0.4s;
         }
         header h1 {
             font-size: 4em;
@@ -63,6 +64,12 @@
             z-index: 1000;
             backdrop-filter: blur(8px);
             border-bottom: 1.5px solid #eee;
+            transition: transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s;
+        }
+        nav.hide-nav {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
         nav ul {
             list-style: none;
@@ -104,6 +111,15 @@
         }
         nav a:hover::after, nav a:focus::after {
             width: 60%;
+        }
+        header.shrink-header {
+            padding: 40px 20px 20px 20px;
+        }
+        header.shrink-header h1 {
+            font-size: 2em;
+        }
+        header.shrink-header p {
+            font-size: 1em;
         }
         section {
             padding: 90px 20px 70px 20px;
@@ -330,6 +346,35 @@
     </style>
     <!-- Font Awesome for media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        // Collapse nav and shrink header on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const nav = document.querySelector('nav');
+            const header = document.querySelector('header');
+            let lastScroll = window.scrollY;
+            let ticking = false;
+
+            function onScroll() {
+                const currentScroll = window.scrollY;
+                if (currentScroll > 80) {
+                    nav.classList.add('hide-nav');
+                    header.classList.add('shrink-header');
+                } else {
+                    nav.classList.remove('hide-nav');
+                    header.classList.remove('shrink-header');
+                }
+                lastScroll = currentScroll;
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(onScroll);
+                    ticking = true;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header>

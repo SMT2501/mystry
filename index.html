@@ -343,6 +343,9 @@
                 height: 28px;
             }
         }
+        section, .media-highlight, .card {
+            transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+        }
     </style>
     <!-- Font Awesome for media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -523,5 +526,24 @@
             Website by <a href="https://virtuodesigns.online" target="_blank" rel="noopener">Virtuo Designs</a>
         </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const revealEls = document.querySelectorAll('section, .media-highlight, .card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(40px)';
+        observer.observe(el);
+    });
+});
+</script>
 </body>
 </html>

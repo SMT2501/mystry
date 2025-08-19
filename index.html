@@ -6,6 +6,7 @@
     <title>MYSTRY 40UR (M4) - My Story, 4 Our Story</title>
     <!-- Google Fonts for Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -56,15 +57,17 @@
             from { opacity: 0; transform: translateY(60px);}
             to { opacity: 1; transform: translateY(0);}
         }
+
+        /* Nav + hide-on-scroll */
         nav {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.95);
             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(8px);
             border-bottom: 1.5px solid #eee;
-            transition: transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s;
+            transition: transform 0.36s cubic-bezier(.77,0,.18,1), opacity 0.36s;
         }
         nav.hide-nav {
             transform: translateY(-100%);
@@ -86,12 +89,12 @@
         nav a {
             text-decoration: none;
             color: #181818;
-            padding: 18px 24px;
+            padding: 14px 20px;
             display: block;
             font-weight: 600;
-            font-size: 1.08em;
+            font-size: 1.02em;
             border-radius: 30px;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.28s, color 0.28s;
             position: relative;
         }
         nav a:hover, nav a:focus {
@@ -107,11 +110,12 @@
             height: 3px;
             background: #ff0000;
             border-radius: 2px;
-            transition: width 0.3s;
+            transition: width 0.28s;
         }
         nav a:hover::after, nav a:focus::after {
             width: 60%;
         }
+
         header.shrink-header {
             padding: 40px 20px 20px 20px;
         }
@@ -121,6 +125,7 @@
         header.shrink-header p {
             font-size: 1em;
         }
+
         section {
             padding: 90px 20px 70px 20px;
             max-width: 1200px;
@@ -140,55 +145,42 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 48px;
         }
+
         .card {
-            background: rgba(255,255,255,0.7);
-            padding: 36px 28px;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1.5px 6px rgba(255,0,0,0.04);
+            background: rgba(255,255,255,0.92);
+            padding: 32px 24px;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
             text-align: center;
             transition: transform 0.32s cubic-bezier(.77,0,.18,1), box-shadow 0.32s;
-            backdrop-filter: blur(2px);
-            border: 1.5px solid #f3f3f3;
+            border: 1px solid #f3f3f3;
             position: relative;
             overflow: hidden;
         }
         .card:hover {
-            transform: translateY(-12px) scale(1.025);
-            box-shadow: 0 16px 40px rgba(255,0,0,0.10), 0 4px 24px rgba(0,0,0,0.10);
-            background: rgba(255,255,255,0.92);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(255,0,0,0.06);
         }
         .card h3 {
             color: #ff0000;
-            font-size: 1.4em;
-            margin-bottom: 14px;
+            font-size: 1.2em;
+            margin-bottom: 12px;
             font-weight: 700;
-            letter-spacing: 1px;
         }
         .card p {
-            margin: 10px 0;
-            font-size: 1.08em;
+            margin: 6px 0;
+            font-size: 1em;
             color: #222;
         }
+
         .alternate {
             background: linear-gradient(120deg, #000 80%, #ff0000 100%);
             color: #fff;
             border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1.5px 6px rgba(255,0,0,0.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            padding: 36px 24px;
         }
-        .alternate h2 {
-            color: #fff;
-            text-shadow: 0 2px 12px rgba(255,0,0,0.13);
-        }
-        .alternate ul li {
-            color: #fff;
-        }
-        ul {
-            padding-left: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        li {
-            margin-bottom: 0.5em;
-        }
+
         .media-highlight {
             background: #fff;
             border-left: 6px solid #ff0000;
@@ -198,209 +190,85 @@
             box-shadow: 0 4px 24px rgba(255,0,0,0.07);
             text-align: center;
         }
-        .media-highlight h2 {
-            color: #000;
-            font-size: 2.2em;
-            margin-bottom: 18px;
-            letter-spacing: 1.5px;
-        }
-        .media-icons {
-            display: flex;
-            justify-content: center;
-            gap: 36px;
-            margin: 24px 0 0 0;
-            flex-wrap: wrap;
-        }
-        .media-icon {
-            font-size: 2.5em;
-            color: #ff0000;
-            background: #fff;
-            border-radius: 50%;
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 12px rgba(255,0,0,0.09);
-            margin-bottom: 10px;
-        }
-        .media-label {
-            font-size: 1em;
-            color: #222;
-            margin-top: 6px;
-        }
+        .media-highlight h2 { color: #000; font-size: 2.2em; margin-bottom: 18px; letter-spacing: 1.5px; }
+        .media-icons { display: flex; justify-content: center; gap: 36px; margin: 24px 0 0 0; flex-wrap: wrap; }
+        .media-icon { font-size: 2.5em; color: #ff0000; background: #fff; border-radius: 50%; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(255,0,0,0.09); }
+        .media-label { font-size: 1em; color: #222; margin-top: 6px; }
+
         footer {
             background: linear-gradient(90deg, #000 80%, #ff0000 100%);
             color: #fff;
             text-align: center;
             padding: 48px 20px 36px 20px;
-            font-size: 1.1em;
-            letter-spacing: 1.2px;
+            font-size: 1.05em;
+            letter-spacing: 1.1px;
             border-radius: 18px 18px 0 0;
             margin-top: 60px;
         }
-        footer a {
-            color: #ff0000;
-            text-decoration: underline;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #fff;
-        }
-        .dev-credit {
-            margin-top: 32px;
-            font-size: 0.95em;
-            color: #fff;
-            opacity: 0.7;
-        }
-        .dev-credit a {
-            color: #fff;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-        .dev-credit a:hover {
-            color: #ff0000;
-        }
+        footer a { color: #ff0000; text-decoration: underline; font-weight: 600; transition: color 0.3s; }
+        footer a:hover { color: #fff; }
+
+        .dev-credit { margin-top: 12px; font-size: 0.95em; color: #fff; opacity: 0.95; }
+        .dev-credit a { color: #fff; text-decoration: underline; font-weight: 600; }
+        .dev-credit a:hover { color: #ff0000; }
+
         /* Responsive Enhancements */
         @media (max-width: 1200px) {
-            section {
-                padding: 60px 10px 40px 10px;
-            }
-            .content-grid {
-                gap: 28px;
-            }
-            .media-highlight {
-                padding: 18px 8px;
-            }
+            section { padding: 60px 10px 40px 10px; }
+            .content-grid { gap: 28px; }
+            .media-highlight { padding: 18px 8px; }
         }
         @media (max-width: 900px) {
-            header {
-                padding: 80px 10px 50px 10px;
-            }
-            header h1 {
-                font-size: 2.5em;
-            }
-            header p {
-                font-size: 1.1em;
-            }
-            nav a {
-                padding: 12px 10px;
-                font-size: 1em;
-            }
-            section h2 {
-                font-size: 1.3em;
-            }
-            .media-highlight h2 {
-                font-size: 1.1em;
-            }
-            .media-icon {
-                font-size: 1.3em;
-                width: 36px;
-                height: 36px;
-            }
+            header { padding: 80px 10px 50px 10px; }
+            header h1 { font-size: 2.5em; }
+            header p { font-size: 1.1em; }
+            nav a { padding: 12px 10px; font-size: 1em; }
+            section h2 { font-size: 1.4em; }
+            .media-highlight h2 { font-size: 1.1em; }
+            .media-icon { font-size: 1.3em; width: 36px; height: 36px; }
         }
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav li {
-                margin: 0 0 8px 0;
-            }
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 22px;
-            }
-            .card {
-                padding: 22px 10px;
-            }
-            .media-highlight {
-                margin: 24px 0;
-            }
-            footer {
-                font-size: 1em;
-                padding: 30px 10px 20px 10px;
-            }
+            nav ul { flex-direction: column; align-items: center; }
+            nav li { margin: 0 0 8px 0; }
+            .content-grid { grid-template-columns: 1fr; gap: 22px; }
+            .card { padding: 22px 12px; }
+            .media-highlight { margin: 24px 0; }
+            footer { font-size: 1em; padding: 30px 10px 20px 10px; }
         }
         @media (max-width: 480px) {
-            header {
-                padding: 40px 4px 20px 4px;
-            }
-            header h1 {
-                font-size: 1.3em;
-            }
-            section {
-                padding: 20px 2px 10px 2px;
-            }
-            .media-highlight {
-                margin: 12px 0;
-                padding: 10px 2px;
-            }
-            .media-icon {
-                font-size: 1em;
-                width: 28px;
-                height: 28px;
-            }
+            header { padding: 40px 4px 20px 4px; }
+            header h1 { font-size: 1.3em; }
+            section { padding: 20px 2px 10px 2px; }
+            .media-highlight { margin: 12px 0; padding: 10px 2px; }
+            .media-icon { font-size: 1em; width: 28px; height: 28px; }
         }
+
         section, .media-highlight, .card {
             transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
         }
     </style>
-    <!-- Font Awesome for media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script>
-        // Collapse nav and shrink header on scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            const nav = document.querySelector('nav');
-            const header = document.querySelector('header');
-            let lastScroll = window.scrollY;
-            let ticking = false;
-
-            function onScroll() {
-                const currentScroll = window.scrollY;
-                if (currentScroll > 80) {
-                    nav.classList.add('hide-nav');
-                    header.classList.add('shrink-header');
-                } else {
-                    nav.classList.remove('hide-nav');
-                    header.classList.remove('shrink-header');
-                }
-                lastScroll = currentScroll;
-                ticking = false;
-            }
-
-            window.addEventListener('scroll', function () {
-                if (!ticking) {
-                    window.requestAnimationFrame(onScroll);
-                    ticking = true;
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
         <h1>MYSTRY 40UR <span>(M4)</span></h1>
         <p>MY STORY, 4 OUR STORY.<br>COMMUNITY | MINDSET | LIFESTYLE | MEDIA</p>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="#what-is">What is M4?</a></li>
             <li><a href="#why-exists">Why M4 Exists</a></li>
             <li><a href="#what-does">What M4 Does</a></li>
             <li><a href="#who-serves">Who M4 Serves</a></li>
-            <li><a href="#media">Media</a></li>
-            <li><a href="#calling-in">Calling In</a></li>
-            <li><a href="#other-offerings">Other Offerings</a></li>
+            <li><a href="#calling-in">M4 Calling In</a></li>
+            <li><a href="#other-offerings">Projects & Initiatives</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     <section id="what-is">
         <h2>What is M4?</h2>
-        <p><strong>MYSTRY 40UR</strong> is a lifestyle & media brand, a cultural movement built on the 454 code:</p>
+        <p><strong>MYSTRY 40UR</strong> is a lifestyle & media movement built on the 454 code:</p>
         <ul>
             <li>4Js – Jigga | Joint | Juice | Journey</li>
             <li>5Ps – Playa | Praya | Patience | Peace | Positivity</li>
@@ -408,142 +276,122 @@
         </ul>
         <p>We fuse streetwear, visual storytelling, digital drops and a spiritual code to create real awareness in youth culture.</p>
     </section>
-    
+
     <section id="why-exists" class="alternate">
         <h2>Why M4 Exists</h2>
-        <p>We exist to remind people, especially the youth, that:</p>
-        <p>“The beauty is in the unknown” & “Awareness is the first step to Freedom.”</p>
-        <p>In a world full of noise, M4 is the signal.</p>
-        <p>Designed to awaken, inspire & guide the next leaders, creatives & hustlers.</p>
+        <p>We exist to remind people, especially the youth, that the beauty is in the unknown and awareness is the first step to freedom.</p>
+        <p>In a world full of noise, M4 is the signal — designed to awaken, inspire & guide the next leaders, creatives & hustlers.</p>
     </section>
-    
+
     <section id="what-does">
         <h2>What M4 Does</h2>
         <div class="content-grid">
             <div class="card">
-                <h3>Streetwear</h3>
-                <p>Minimal, statement-driven limited design pieces.</p>
-                <p>Hoodies, Tees, Sweats, Caps… you name it.</p>
-            </div>
-            <div class="card">
-                <h3>Visual Content</h3>
-                <p>Poetic visual storytelling.</p>
-                <p>Micro-series, daily drops.</p>
-                <p>Digital philosophy that educates & entertains.</p>
-            </div>
-            <div class="card">
                 <h3>Community</h3>
-                <p>Elevation Conversations.</p>
-                <p>Listening, creator collaborations, pop-ups, and charity work.</p>
+                <p>Elevation Conversations — listening sessions, collaborations, pop-ups and charity work.</p>
+            </div>
+            <div class="card">
+                <h3>Retail</h3>
+                <p>Minimal, statement-driven limited pieces — hoodies, tees, sweats and caps.</p>
+            </div>
+            <div class="card">
+                <h3>Content</h3>
+                <p>Poetic visual storytelling — micro-series, daily drops and digital philosophy that educates & entertains.</p>
             </div>
         </div>
     </section>
 
-    <div id="media" class="media-highlight">
-        <h2>M4 is a Next-Gen Media Business</h2>
-        <p>
-            We are not just a brand—we are a media house for the aware generation.<br>
-            <strong>MYSTRY 40UR Media</strong> produces, curates, and amplifies authentic stories across digital, audio, and visual platforms.
-        </p>
-        <div class="media-icons">
-            <div>
-                <div class="media-icon"><i class="fas fa-video"></i></div>
-                <div class="media-label">Video Series</div>
-            </div>
-            <div>
-                <div class="media-icon"><i class="fas fa-microphone"></i></div>
-                <div class="media-label">Podcasts</div>
-            </div>
-            <div>
-                <div class="media-icon"><i class="fas fa-palette"></i></div>
-                <div class="media-label">Digital Art</div>
-            </div>
-            <div>
-                <div class="media-icon"><i class="fas fa-bullhorn"></i></div>
-                <div class="media-label">Campaigns</div>
-            </div>
-            <div>
-                <div class="media-icon"><i class="fas fa-users"></i></div>
-                <div class="media-label">Community Stories</div>
-            </div>
-        </div>
-        <p style="margin-top:32px;">
-            <strong>We create for the culture. We create for the future.</strong>
-        </p>
-    </div>
-    
     <section id="who-serves" class="alternate">
         <h2>Who M4 Serves</h2>
-        <p>The Aware.</p>
-        <ul>
-            <li>Dreamers who think deeply</li>
-            <li>Hustlers who move consciously</li>
-            <li>Creatives who create fearlessly</li>
-            <li>Kasi kids, OGs, spiritual rebels, clean scholars—you name it…</li>
-        </ul>
-        <p>This is the Aware Community.</p>
+        <p>The Aware — dreamers, hustlers, creatives and community builders. Kasi kids, OGs, spiritual rebels and scholars welcome.</p>
     </section>
-    
+
     <section id="calling-in">
         <h2>M4 Calling In</h2>
-        <p>We are calling in the following:</p>
+        <p>We welcome collaborators and cultural partners:</p>
         <ul>
-            <li>Sponsorships [Vehicle, Merchandise Production, Equipment]</li>
-            <li>Creative Collaborations [Content studios, Shooters, Stylists]</li>
-            <li>Brand partners aligned with the culture & consciousness</li>
-            <li>Media partners, podcast guests, and storytellers</li>
+            <li>Sponsors for productions & events</li>
+            <li>Content studios, shooters, stylists & creatives</li>
+            <li>Media partners, podcast guests and storytellers</li>
         </ul>
     </section>
-    
+
     <section id="other-offerings">
-        <h2>Other Offerings Thru MYSTRY 40UR NPC</h2>
+        <h2>Projects & Initiatives</h2>
         <div class="content-grid">
             <div class="card">
-                <h3>Football Academy of Hope NPC</h3>
-                <p>Youth development, community & sport.</p>
-                <p>Coaching, life skills, mentorship & tournaments.</p>
+                <h3>Football Academy of Hope</h3>
+                <p>Youth development through sport — coaching, life skills, mentorship & tournaments.</p>
             </div>
             <div class="card">
-                <h3>Bluprint Trading & Projects PTY</h3>
-                <p>Services, logistics, events.</p>
-                <p>Transport, equipment hire, event logistics, setups.</p>
+                <h3>Bluprint Projects</h3>
+                <p>Production logistics, event execution and creative operations supporting M4 drops and activations.</p>
             </div>
             <div class="card">
-                <h3>Thabang Motuku Holding PTY</h3>
-                <p>Holdings & investments, strategy & consulting.</p>
-                <p>IP protection, financial & stakeholder management.</p>
+                <h3>Creative Labs</h3>
+                <p>Artist residencies, collaborative shoots and small-batch product experiments for the community.</p>
             </div>
         </div>
     </section>
-    
+
     <footer id="contact">
         <h2>Contact Us</h2>
-        <p>MYSTRY 40UR: “MY STORY, 4 OUR STORY”.</p>
+        <p>MYSTRY 40UR : “MY STORY , 4 OUR STORY”.</p>
         <p>Thabang “T” Motuku | Founder & Creative Director – M4</p>
         <p><a href="mailto:thabangmotuku1@gmail.com">thabangmotuku1@gmail.com</a> | +27 (72) 266 4499</p>
         <p>@teem4fr & @mystry40ur across all social media platforms.</p>
         <div class="dev-credit">
-            Website by <a href="https://virtuodesigns.online" target="_blank" rel="noopener">Virtuo Designs</a>
+            Website developed by <a href="https://virtuodesigns.online" target="_blank" rel="noopener">Virtuo Designs</a>
         </div>
     </footer>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const revealEls = document.querySelectorAll('section, .media-highlight, .card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.15 });
 
-    revealEls.forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(40px)';
-        observer.observe(el);
+    <script>
+    // collapse nav & shrink header on scroll (debounced via rAF)
+    (function () {
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+        let ticking = false;
+
+        function handleScroll() {
+            const sc = window.scrollY || window.pageYOffset;
+            if (sc > 80) {
+                nav.classList.add('hide-nav');
+                header.classList.add('shrink-header');
+            } else {
+                nav.classList.remove('hide-nav');
+                header.classList.remove('shrink-header');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+    })();
+    </script>
+
+    <script>
+    // section reveal using IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function () {
+        const revealEls = document.querySelectorAll('section, .media-highlight, .card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealEls.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(40px)';
+            observer.observe(el);
+        });
     });
-});
-</script>
+    </script>
 </body>
 </html>
